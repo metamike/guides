@@ -38,6 +38,11 @@ Basics
     git log --stat --summary
     git log -p
     ```
+* Show a version of a file
+
+    ```
+    git show <tag|branch|commit|HEAD>:<file>
+    ```
 * Show differences between versions (diff or log).  <from> and <to> can be revisions, tags, branches (tips), or HEAD.
 
     ```
@@ -54,6 +59,19 @@ Basics
     ```
     git branch -d <branch>
     git push origin :<branch>
+    ```
+* Clean/Reset working tree completely
+
+    ```
+    git clean -fdx
+    ```
+* Revert a series of commits (inclusive) safely
+
+    ```
+    git checkout -b <new branch> <branch>
+    git revert <from>..<to>
+    git checkout <branch>
+    git merge <new branch>
     ```
 * Re-"parent" a branch from one to another (RISKY)
 
