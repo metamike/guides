@@ -85,6 +85,13 @@ Basics
     ```
     git remote update --prune
     ```
+* Keep up-to-date with a repo you forked
+
+    ```
+    git remote add upstream <repo>
+    git fetch upstream
+    git merge upstream/master
+    ```
 
 Concepts
 --------
