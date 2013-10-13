@@ -65,13 +65,10 @@ Basics
     ```
     git clean -fdx
     ```
-* Revert a series of commits (inclusive) safely
+* Revert a merge
 
     ```
-    git checkout -b <new branch> <branch>
-    git revert <from>..<to>
-    git checkout <branch>
-    git merge <new branch>
+    git revert -m 1 <SHA of the merge commit>
     ```
 * Re-"parent" a branch from one to another (RISKY)
 
