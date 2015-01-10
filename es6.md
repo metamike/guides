@@ -3,6 +3,8 @@ ES6
 
 EcmaScript 6 stuff
 
+http://kangax.github.io/compat-table/es6/
+
 New Features/Changes
 --------------------
 * `contains` instead of `indexOf`
@@ -43,3 +45,34 @@ New Features/Changes
     }
     ```
 * Template strings using backticks and `${}`
+* Multiline string support
+* Generators
+
+    ```
+    function* inf() {
+      var i = 0;
+      while(true) { yield ++i; }
+    }
+    for(var x of inf()) {
+      alert(x);
+      if (x > 3) { break; }
+    }
+    ```
+* `class` syntax is just syntactic sugar
+* Module system
+
+    ```
+    // a.js
+    var name = 'some name';
+    export default name;
+
+    // b.js
+    import name from 'a';
+    alert(name);
+
+    // importing names using a namespace
+    import * as a from 'a';
+    a.name;
+    a.location; // etc
+    ```
+
