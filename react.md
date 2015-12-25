@@ -1,7 +1,7 @@
-ES6
-===
-
 ReactJS
+=======
+
+ReactJS - build web stuff
 
 New Features/Changes
 --------------------
@@ -43,7 +43,56 @@ New Features/Changes
 * You need to use `this.setState` to change a state value for it to persist between renders
 * You can create elements in a list, but each needs a `key`, then you can do `this.props.data.map(function(data, index) { return <Thing key="index" ... /> });`
 * For events, you can use `onClick` on a JSX component and then have that call a method name
+* When hitting a route, a component is rendered (and all its parents)
+* To start the router:
+
+    ```
+    var routes = (
+      <Route name="RecipeBook" path="/" handler={ComponentName}>
+        <DefaultRoute handler={Component} />
+        <Route name="recipeDetails" path="/recipeDetails/:_id" handler={Component} />
+        ...
+      </Route>
+    );
+    Router.run(routes, function (handler, state) {
+      var params = state.params;
+      React.render(<Handler params={params} data={data} />,
+        document.getElementById('container'));
+    });
+    /* Then in the component itself: */
+    <RouteHandler {...this.props} />
+    ```
 
 Flux
 ----
+Flux: "A bunch of callbacks w/ some organization and a subscription pattern"
+
+* Using McFly, can create actions like this:
+
+    ```
+    var Actions = Flux.createActions({action: function(text) { return { ... }; }});
+    ```
+
+* The store is important in Flux:
+
+    ```
+    var _array = [];
+    var Store = Flux.createStore({
+      getRecipes: function() { return _info; }
+    }, function(payload) {
+      if (payload.actionType === 'ADD') {
+        _array.push(payload.text);
+        Store.emitChange();
+      }
+    });
+    ```
+
+* To wire in Flux and the store
+
+    ```
+    var Component = React.createClass({
+      mixins: [Store.mixin],
+      render: ...
+    });
+    ```
 
