@@ -63,10 +63,13 @@ New Features/Changes
     <RouteHandler {...this.props} />
     ```
 
+* When there's no path specified, it just uses `name`
+
 Flux
 ----
 Flux: "A bunch of callbacks w/ some organization and a subscription pattern"
 
+* Primary Flow: user interacts with some component, an action is fired with the data, one or more stores are subscribed to the change and update, then they emit changes which updates the subscribed new components with new props
 * Using McFly, can create actions like this:
 
     ```
@@ -96,3 +99,11 @@ Flux: "A bunch of callbacks w/ some organization and a subscription pattern"
     });
     ```
 
+Folder Layout
+-------------
+* Try this:
+
+    ```
+    components/
+    router
+    ```
